@@ -1,0 +1,112 @@
+{
+	"info": {
+		"_postman_id": "007549a7-b981-48af-a584-1b0403881bf4",
+		"name": "BuuPass RABC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"dimitrimik\",\n    \"first_name\": \"Mikhail\",\n    \"last_name\": \"Dimitri\",\n    \"email\": \"mikhail@dimitri.com\",\n    \"password\": \"s@2cHEw$4hiqU\",\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/v1/auth/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"v1",
+						"auth",
+						"user"
+					]
+				},
+				"description": "Endpoint for creating users"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Sub user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\": 1,\n    \"username\": \"nikitavla\",\n    \"first_name\": \"Nikita\",\n    \"last_name\": \"Vladimir\",\n    \"email\": \"nikitavla@yahoo.com\",\n    \"password\": \"5R$T#q7D0OTiw\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/v1/sub_user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"v1",
+						"sub_user"
+					]
+				},
+				"description": "Endpoint for creation of sub users under a particular user"
+			},
+			"response": []
+		},
+		{
+			"name": "Fetching users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/v1/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"v1",
+						"user"
+					]
+				},
+				"description": "Endpoint for fetching different users"
+			},
+			"response": []
+		},
+		{
+			"name": "Fetching sub users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/v1/sub_user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"v1",
+						"sub_user"
+					]
+				},
+				"description": "Endpoint for fetching sub users"
+			},
+			"response": []
+		}
+	]
+}

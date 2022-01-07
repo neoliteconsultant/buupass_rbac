@@ -1,5 +1,5 @@
 ### About
-A simple RBAC (Role based Access Control)  App 
+A Django Role based Access Control API.
 
 
 ### Prerequisites
@@ -46,20 +46,23 @@ the following tools
    
    NB: The development server runs on port 8000 by default  
 
-
-### Running tests
-In a terminal navigate to the root directory of the project containing the manage.py file, 
-then run the following command in a shell:  
-    ```
-      $ python manage.py test
-    ```
-
 ### Running API requests
 To execute the API requests, import the Postman collection file(BuuPass RABC.postman_collection.json)
 in the Postman app: Click on the file tab and then click import.
 
+
+### Running tests
+In a terminal navigate to the root directory of the project containing the manage.py file, 
+then run the following command in a shell:  
+
+    ```
+      $ ./manage.py test account.tests
+    ```
+
+
+
 ### Assigning user permissions and roles
-Django provides an inbuilt permission system that allows permissions to be assigned specific users
+Django provides an inbuilt permission system that allows permissions to be assigned specific users.
 It also provides a way for assigning roles(groups) to users
 
 #### Create Group/Roles
@@ -77,19 +80,19 @@ It also provides a way for assigning roles(groups) to users
       ```
 4. Login to the site using the credentials for your superuser account.
 
-5. Click the Add button (next to Group) in the home page "AUTHENTICATION AND AUTHORIZATION" 
+5. Click the Add button (next to Group) in the home page **AUTHENTICATION AND AUTHORIZATION** 
    section to create a new Group; enter the name of the group, select group permissions,
    and then click the SAVE button.
 
 #### Assign a role to user
 1. Navigate to the admin site in your local web browser (http://127.0.0.1:8000/admin/).
 
-2. Click the Accounts in the home page "ACCOUNTS" 
+2. Click the Accounts link in the home page **ACCOUNTS** 
    section.
 
-3. Select a specific user and scroll to the groups section.
+3. Select a specific user and scroll to the **groups** section.
 
-4. Assign a group to a user by moving the group from the left to the right section
+4. Assign a group to a user by moving the group from the left column to the right section
    using the arrow button.
 
-5. Click the SAVE button.
+5. Click the **SAVE** button.

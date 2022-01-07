@@ -1,36 +1,33 @@
 
 from django.test import TestCase
-
-from django.contrib.auth.models import User
 from .models import User, SubUser
 from .status_code import HTTP_201_CREATED, HTTP_200_OK
 
 
 class TestRBAC(TestCase):
 
-    @classmethod
-    def setUpClass(cls):
-        user = User()
-        user.username = 'lewism'
-        user.first_name= 'Lewis'
-        user.last_name = 'Markus'
-        user.email =  'lewis@buupass.com'
-        user.password =  'TOm!Z&6lsw8'
-        user.save()
+    def setUp(self):
+        self.user = User()
+        self.user.username = 'lewism'
+        self.user.first_name= 'Lewis'
+        self.user.last_name = 'Markus'
+        self.user.email =  'lewis@buupass.com'
+        self.user.password =  'TOm!Z&6lsw8'
+        self.user.save()
 
-        sub_user = SubUser()
-        sub_user.user = user
-        sub_user.username = "nexusva"
-        sub_user.first_name = "Nexus"
-        sub_user.last_name = "Vanguard"
-        sub_user.password = "QuP8L0ri!to"
-        sub_user.email = "nexus.vanguard@gmail.com"
-        sub_user.save()
+        self.sub_user = SubUser()
+        self.sub_user.user = self.user
+        self.sub_user.username = "nexusva"
+        self.sub_user.first_name = "Nexus"
+        self.sub_user.last_name = "Vanguard"
+        self.sub_user.password = "QuP8L0ri!to"
+        self.sub_user.email = "nexus.vanguard@gmail.com"
+        self.sub_user.save()
 
 
     def test_user_creation(self):
         data = {'username':'tonys','first_name': 'Tony', 'last_name': 'Sonia', 'email':'tonys@gmail.com','password':'P*LpH3wrUd9'}
-        response = self.client.post('/v1/auth/users', data)
+        response = self.client.post('/v1/auth/users', data, content_type= "application/json")
         json_output = response.json()
 
         self.assertEqual(response.status_code, HTTP_201_CREATED)

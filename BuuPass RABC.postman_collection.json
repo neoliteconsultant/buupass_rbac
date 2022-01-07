@@ -6,37 +6,6 @@
 	},
 	"item": [
 		{
-			"name": "Create User",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"username\": \"dimitrimik\",\n    \"first_name\": \"Mikhail\",\n    \"last_name\": \"Dimitri\",\n    \"email\": \"mikhail@dimitri.com\",\n    \"password\": \"s@2cHEw$4hiqU\",\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8000/v1/auth/user",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"v1",
-						"auth",
-						"user"
-					]
-				},
-				"description": "Endpoint for creating users"
-			},
-			"response": []
-		},
-		{
 			"name": "Create Sub user",
 			"request": {
 				"method": "POST",
@@ -51,14 +20,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8000/v1/sub_user",
+					"raw": "http://localhost:8000/auth/sub_user",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8000",
 					"path": [
-						"v1",
+						"auth",
 						"sub_user"
 					]
 				},
@@ -72,14 +41,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/v1/user",
+					"raw": "http://localhost:8000/auth/user",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8000",
 					"path": [
-						"v1",
+						"auth",
 						"user"
 					]
 				},
@@ -93,18 +62,48 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/v1/sub_user",
+					"raw": "http://localhost:8000/auth/sub_user",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8000",
 					"path": [
-						"v1",
+						"auth",
 						"sub_user"
 					]
 				},
 				"description": "Endpoint for fetching sub users"
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"dimitrimik\",\n    \"first_name\": \"Mikhail\",\n    \"last_name\": \"Dimitri\",\n    \"email\": \"mikhail@dimitri.com\",\n    \"password\": \"s@2cHEw$4hiqU\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/auth/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"auth",
+						"user"
+					]
+				},
+				"description": "Endpoint for creating users"
 			},
 			"response": []
 		}
